@@ -12,7 +12,7 @@ public class BishopMoveFinder {
     public static HashSet<ChessMove> findMoves(ChessBoard chessBoard, ChessPosition chessPosition) {
         int row = chessPosition.getRow();
         int column = chessPosition.getColumn();
-        int[][] moves = {{-1, 1}, {1, 1}, {1, -1}, {-1, -1}};
-        throw new RuntimeException("Not implemented");
+        int[][] directions = {{-1, 1}, {1, 1}, {1, -1}, {-1, -1}};
+        return MoveFinder.findMoves(chessBoard, chessPosition, directions, row, column);
     }
 }

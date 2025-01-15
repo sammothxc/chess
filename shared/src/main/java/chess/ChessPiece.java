@@ -56,12 +56,12 @@ public class ChessPiece {
      */
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {
         return switch (type) {
-            case KING -> throw new RuntimeException("Not implemented"); //KingMoveFinder.findMoves(board, myPosition);
-            case QUEEN -> throw new RuntimeException("Not implemented"); //QueenMoveFinder.findMoves(board, myPosition);
+            case KING -> BishopMoveFinder.findMoves(board, myPosition); //KingMoveFinder.findMoves(board, myPosition);
+            case QUEEN -> BishopMoveFinder.findMoves(board, myPosition); //QueenMoveFinder.findMoves(board, myPosition);
             case BISHOP -> BishopMoveFinder.findMoves(board, myPosition);
-            case KNIGHT -> throw new RuntimeException("Not implemented"); //KnightMoveFinder.findMoves(board, myPosition);
-            case ROOK -> throw new RuntimeException("Not implemented"); //RookMoveFinder.findMoves(board, myPosition);
-            case PAWN -> throw new RuntimeException("Not implemented"); //PawnMoveFinder.findMoves(board, myPosition);
+            case KNIGHT -> BishopMoveFinder.findMoves(board, myPosition); //KnightMoveFinder.findMoves(board, myPosition);
+            case ROOK -> BishopMoveFinder.findMoves(board, myPosition); //RookMoveFinder.findMoves(board, myPosition);
+            case PAWN -> BishopMoveFinder.findMoves(board, myPosition); //PawnMoveFinder.findMoves(board, myPosition);
         };
     }
 }
