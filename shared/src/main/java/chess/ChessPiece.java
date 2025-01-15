@@ -1,6 +1,6 @@
 package chess;
 
-import chess.MoveFinder.BishopMoveFinder;
+import chess.MoveFinder.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -56,12 +56,12 @@ public class ChessPiece {
      */
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {
         return switch (type) {
-            case KING -> BishopMoveFinder.findMoves(board, myPosition); //KingMoveFinder.findMoves(board, myPosition);
-            case QUEEN -> BishopMoveFinder.findMoves(board, myPosition); //QueenMoveFinder.findMoves(board, myPosition);
+            case KING -> KingMoveFinder.findMoves(board, myPosition);
+            case QUEEN -> QueenMoveFinder.findMoves(board, myPosition);
             case BISHOP -> BishopMoveFinder.findMoves(board, myPosition);
-            case KNIGHT -> BishopMoveFinder.findMoves(board, myPosition); //KnightMoveFinder.findMoves(board, myPosition);
-            case ROOK -> BishopMoveFinder.findMoves(board, myPosition); //RookMoveFinder.findMoves(board, myPosition);
-            case PAWN -> BishopMoveFinder.findMoves(board, myPosition); //PawnMoveFinder.findMoves(board, myPosition);
+            case KNIGHT -> KnightMoveFinder.findMoves(board, myPosition);
+            case ROOK -> RookMoveFinder.findMoves(board, myPosition);
+            case PAWN -> PawnMoveFinder.findMoves(board, myPosition);
         };
     }
 }

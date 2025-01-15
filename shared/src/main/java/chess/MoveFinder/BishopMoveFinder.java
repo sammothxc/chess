@@ -1,7 +1,6 @@
 package chess.MoveFinder;
 
 import chess.ChessBoard;
-import chess.ChessPiece;
 import chess.ChessMove;
 import chess.ChessPosition;
 
