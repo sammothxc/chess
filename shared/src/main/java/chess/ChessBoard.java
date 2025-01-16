@@ -53,23 +53,17 @@ public class ChessBoard {
                 ChessPiece.PieceType.ROOK
         };
         ChessGame.TeamColor[] colors = {
-                ChessGame.TeamColor.WHITE,
-                ChessGame.TeamColor.BLACK
+                ChessGame.TeamColor.BLACK,
+                ChessGame.TeamColor.WHITE
         };
 
         for (ChessGame.TeamColor pieceColor : colors) {
-            for (int j = 0; j < backRowOrder.length; j++) {
-                int row = (pieceColor == ChessGame.TeamColor.WHITE) ? 8 : 1;
-                addPiece(new ChessPosition(row, j + 1), new ChessPiece(pieceColor, backRowOrder[j]));
-                addPawns(pieceColor);
+            for (int col = 1; col <= backRowOrder.length; col++) {
+                addPiece(new ChessPosition((pieceColor == ChessGame.TeamColor.WHITE) ? 1 : 8, col),
+                        new ChessPiece(pieceColor, backRowOrder[col-1]));
+                addPiece(new ChessPosition((pieceColor == ChessGame.TeamColor.WHITE) ? 2 : 7, col),
+                        new ChessPiece(pieceColor, ChessPiece.PieceType.PAWN));
             }
-        }
-    }
-
-    private void addPawns(ChessGame.TeamColor pawnColor) {
-        for (int col = 1; col <= 8; col++) {
-            int row = (pawnColor == ChessGame.TeamColor.WHITE) ? 7 : 2;
-            addPiece(new ChessPosition(row, col), new ChessPiece(pawnColor, ChessPiece.PieceType.PAWN));
         }
     }
 
