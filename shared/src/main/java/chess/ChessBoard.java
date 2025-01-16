@@ -10,7 +10,7 @@ import java.util.Objects;
  * signature of the existing methods.
  */
 public class ChessBoard {
-    private final ChessPiece[][] boardSquares = new ChessPiece [8][8];
+    private ChessPiece[][] boardSquares = new ChessPiece [8][8];
     public ChessBoard() {
         
     }
@@ -41,7 +41,36 @@ public class ChessBoard {
      * (How the game of chess normally starts)
      */
     public void resetBoard() {
-        throw new RuntimeException("Not implemented");
+        boardSquares = new ChessPiece[8][8];
+        ChessPiece.PieceType[] backRowOrder = {
+                ChessPiece.PieceType.ROOK,
+                ChessPiece.PieceType.KNIGHT,
+                ChessPiece.PieceType.BISHOP,
+                ChessPiece.PieceType.QUEEN,
+                ChessPiece.PieceType.KING,
+                ChessPiece.PieceType.BISHOP,
+                ChessPiece.PieceType.KNIGHT,
+                ChessPiece.PieceType.ROOK
+        };
+        ChessGame.TeamColor[] colors = {
+                ChessGame.TeamColor.WHITE,
+                ChessGame.TeamColor.BLACK
+        };
+
+        for (ChessGame.TeamColor pieceColor : colors) {
+            for (int j = 0; j < backRowOrder.length; j++) {
+                int row = (pieceColor == ChessGame.TeamColor.WHITE) ? 8 : 1;
+                addPiece(new ChessPosition(row, j + 1), new ChessPiece(pieceColor, backRowOrder[j]));
+                addPawns(pieceColor);
+            }
+        }
+    }
+
+    private void addPawns(ChessGame.TeamColor pawnColor) {
+        for (int col = 1; col <= 8; col++) {
+            int row = (pawnColor == ChessGame.TeamColor.WHITE) ? 7 : 2;
+            addPiece(new ChessPosition(row, col), new ChessPiece(pawnColor, ChessPiece.PieceType.PAWN));
+        }
     }
 
     @Override
