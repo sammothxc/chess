@@ -40,8 +40,6 @@ public class ChessBoard {
         if (o == this) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ChessBoard that = (ChessBoard) o;
-        System.out.println(Arrays.deepToString(boardSquares));
-        System.out.println(Arrays.deepToString(that.boardSquares));
         return Arrays.deepEquals(boardSquares, that.boardSquares);
     }
 
