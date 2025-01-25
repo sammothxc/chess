@@ -12,7 +12,18 @@ public class PawnMoveFinder {
         int col = chessPosition.getColumn();
         ChessGame.TeamColor team = chessBoard.getTeamSquare(chessPosition);
         int directions = team == ChessGame.TeamColor.WHITE ? 1 : -1;
+        boolean promoted = (team == ChessGame.TeamColor.WHITE && row == 7) || (team == ChessGame.TeamColor.BLACK && row == 2);
+        if (promoted) {
+            promotionPieces = new ChessPiece.PieceType[]{ChessPiece.PieceType.ROOK, ChessPiece.PieceType.KNIGHT, ChessPiece.PieceType.BISHOP, ChessPiece.PieceType.QUEEN};
+        }
+        for (ChessPiece.PieceType promotionPiece : promotionPieces) {
+            ChessPosition moveForward = new ChessPosition(row + directions, col);
+            if (ChessPosition.isSquare(moveForward) && chessBoard.getPiece(moveForward) == null) {
+                moves.add(new ChessMove(chessPosition, moveForward, promotionPiece));
+            }
 
+
+        }
         return moves;
     }
 }

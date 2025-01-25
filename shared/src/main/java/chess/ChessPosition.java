@@ -34,6 +34,11 @@ public class ChessPosition {
         return col;
     }
 
+    public static boolean isSquare(ChessPosition position) {
+        return (position.getRow() >= 1 && position.getRow() <= 8) &&
+                (position.getColumn() >= 1 && position.getColumn() <= 8);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
