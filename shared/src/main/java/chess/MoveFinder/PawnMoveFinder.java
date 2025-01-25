@@ -27,8 +27,19 @@ public class PawnMoveFinder {
                     chessBoard.getTeamSquare(moveLeft) != team) {
                 moves.add(new ChessMove(chessPosition, moveLeft, promotionPiece));
             }
-
-
+            ChessPosition moveRight = new ChessPosition(row + directions, col + 1);
+            if (ChessPosition.isSquare(moveRight) &&
+                    chessBoard.getPiece(moveRight) != null &&
+                    chessBoard.getTeamSquare(moveRight) != team) {
+                moves.add(new ChessMove(chessPosition, moveRight, promotionPiece));
+            }
+            ChessPosition doubleForward = new ChessPosition(row + directions * 2, col);
+            if (ChessPosition.isSquare(doubleForward) &&
+                    ((team == ChessGame.TeamColor.WHITE && row == 2) || (team == ChessGame.TeamColor.BLACK && row == 7)) &&
+                    chessBoard.getPiece(doubleForward) == null &&
+                    chessBoard.getPiece(moveForward) == null) {
+                moves.add(new ChessMove(chessPosition, doubleForward, promotionPiece));
+            }
         }
         return moves;
     }
