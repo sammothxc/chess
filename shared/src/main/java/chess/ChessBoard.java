@@ -35,20 +35,12 @@ public class ChessBoard {
         return boardSquares[position.getRow()-1][position.getColumn()-1];
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == this) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ChessBoard that = (ChessBoard) o;
-        return Arrays.deepEquals(boardSquares, that.boardSquares);
+    public ChessGame.TeamColor getTeamSquare(ChessPosition position) {
+        if (getPiece(position) != null) {
+            return getPiece(position).getTeamColor();
+        }
+        else return null;
     }
-
-
-    @Override
-    public int hashCode() {
-        return 73 * Arrays.deepHashCode(boardSquares);
-    }
-
     /**
      * Sets the board to the default starting board
      * (How the game of chess normally starts)
@@ -80,4 +72,16 @@ public class ChessBoard {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ChessBoard that = (ChessBoard) o;
+        return Arrays.deepEquals(boardSquares, that.boardSquares);
+    }
+
+    @Override
+    public int hashCode() {
+        return 73 * Arrays.deepHashCode(boardSquares);
+    }
 }
