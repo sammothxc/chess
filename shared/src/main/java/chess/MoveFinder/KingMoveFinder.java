@@ -10,6 +10,6 @@ public class KingMoveFinder {
     public static final int[][] directions = {{-1, 1}, {0, 1}, {1, 1}, {1, 0}, {1, -1}, {0, -1}, {-1, -1}, {-1, 0}};
 
     public static HashSet<ChessMove> findMoves(ChessBoard chessBoard, ChessPosition chessPosition) {
-        return MoveFinder.findKingMoves(chessBoard, chessPosition, directions); //fix
+        return MoveFinder.findSingleMoves(chessBoard, chessPosition, directions); //fix
     }
 }

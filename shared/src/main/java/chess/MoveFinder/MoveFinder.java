@@ -47,7 +47,7 @@ public class MoveFinder {
         return moves;
     }
 
-    public static HashSet<ChessMove> findKingMoves(ChessBoard chessBoard, ChessPosition chessPosition, int[][] directions) {
+    public static HashSet<ChessMove> findSingleMoves(ChessBoard chessBoard, ChessPosition chessPosition, int[][] directions) {
         HashSet<ChessMove> moves = HashSet.newHashSet(1);
         int row = chessPosition.getRow();
         int col = chessPosition.getColumn();
