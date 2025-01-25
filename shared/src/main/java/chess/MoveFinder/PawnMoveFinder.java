@@ -21,6 +21,12 @@ public class PawnMoveFinder {
             if (ChessPosition.isSquare(moveForward) && chessBoard.getPiece(moveForward) == null) {
                 moves.add(new ChessMove(chessPosition, moveForward, promotionPiece));
             }
+            ChessPosition moveLeft = new ChessPosition(row + directions, col - 1);
+            if (ChessPosition.isSquare(moveLeft) &&
+                    chessBoard.getPiece(moveLeft) != null &&
+                    chessBoard.getTeamSquare(moveLeft) != team) {
+                moves.add(new ChessMove(chessPosition, moveLeft, promotionPiece));
+            }
 
 
         }
