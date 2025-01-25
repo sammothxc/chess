@@ -1,9 +1,6 @@
 package chess.MoveFinder;
 
-import chess.ChessBoard;
-import chess.ChessMove;
-import chess.ChessPosition;
-
+import chess.*;
 import java.util.HashSet;
 
 public class BishopMoveFinder {

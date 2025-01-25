@@ -1,16 +1,13 @@
 package chess.MoveFinder;
 
-import chess.ChessBoard;
-import chess.ChessGame;
-import chess.ChessMove;
-import chess.ChessPosition;
-
+import chess.*;
 import java.util.HashSet;
 
 public class PawnMoveFinder {
 
     public static HashSet<ChessMove> findMoves(ChessBoard chessBoard, ChessPosition chessPosition) {
         HashSet<ChessMove> moves = new HashSet<>(1);
+        var promotionPieces = new ChessPiece.PieceType[]{null};
         int row = chessPosition.getRow();
         int col = chessPosition.getColumn();
         ChessGame.TeamColor team = chessBoard.getTeamSquare(chessPosition);

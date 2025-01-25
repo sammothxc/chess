@@ -1,10 +1,6 @@
 package chess.MoveFinder;
 
-import chess.ChessBoard;
-import chess.ChessPosition;
-import chess.ChessMove;
-import chess.ChessGame;
-
+import chess.*;
 import java.util.HashSet;
 
 public class MoveFinder {
